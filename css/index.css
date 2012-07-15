@@ -1,0 +1,24 @@
+html, body {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	font-size: 10px;
+}
+div.container {
+	background-color: #A0A0A0;
+	height: 100%;
+	width: 1024px;
+	position: relative;
+	margin: auto;
+	margin-top: 50px;
+}
+div.form-wrapper {
+	padding: 20px;
+	position: relative;
+}
+
+ul.form-ul {
+	list-style: none;
+}
+ul.form-ul li {
+	padding: 4px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Test Page</title>
+	<link rel="stylesheet" href="css/index.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.21.custom.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript" src="js/formvalidator.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$('form#xform').validateFields();
+		
+		//$('button#submit').button();
+		
+		//$('input[type="text"].datepicker').datepicker({ dateFormat : "yy-mm-dd" });
+	});
+	</script>
+</head>
+<body>
+	<div class="container">
+
+		<div class="form-wrapper">		
+			<form id="xform">
+				<div class="ui-widget">
+					<div class="ui-state-error ui-corner-all"> 
+						<p>
+							<span class="ui-icon ui-icon-alert"></span> 
+							<strong>Alert:</strong> 
+							Sample ui-state-error style.
+						</p>
+					</div>
+				</div>
+
+				<ul class="form-ul" >
+					<li>
+						<label for="1">Sample Field 1</label>
+						<input type="text" id="1" class="required">
+					</li>
+					<li>
+						<label for="2">Sample Field 2</label>
+						<input type="text" id="2" class="required">
+					</li>
+					<li>
+						<input type="checkbox" name="checkbox-1" class="required">
+						<input type="checkbox" name="checkbox-1" class="required">
+					</li>
+					<li></li>
+					<li>
+						<!-- ISO Format = YYYY-MM-DD -->
+						<label for="date1">Date From</label>
+						<input type="text" id="date1" class="required datepicker">
+					</li>
+					<li>
+						<label for="date2">Date To</label>
+						<input type="text" id="date2" class="required datepicker">
+					</li>
+					<li>
+						<button id="submit">Submit</button>	
+					</li>
+				</ul>
+			</form>
+		</div>
+
+	</div>
+</body>
+
+</html>
