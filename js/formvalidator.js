@@ -35,6 +35,14 @@
 							returnBackgroundColor(currentElement);
 						}
 					}
+					if ($(currentElement).is('select')) {
+						if (fieldIsEmpty($(':selected', currentElement).val())) {
+							changeBackgroundColor(currentElement);
+							formValid = false;
+						} else {
+							returnBackgroundColor(currentElement);
+						}
+					}
 				});	
 				return formValid;
 			});
