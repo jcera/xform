@@ -11,7 +11,9 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 		
-		$('form#xform').validateFields();
+		$('form#xform').validateFields({
+			errorMessageContainerId : 'errorMsgContainer'
+		});
 		
 		//$('button#submit').button();
 		
@@ -24,12 +26,10 @@
 
 		<div class="form-wrapper">		
 			<form id="xform">
-				<div class="ui-widget">
+				<div class="ui-widget" id="errorMsgContainer">
 					<div class="ui-state-error ui-corner-all"> 
 						<p>
-							<span class="ui-icon ui-icon-alert"></span> 
-							<strong>Alert:</strong> 
-							Sample ui-state-error style.
+							<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span> 
 						</p>
 					</div>
 				</div>

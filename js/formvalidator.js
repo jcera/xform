@@ -1,5 +1,6 @@
 /*	
 *	TODO 
+*	- dynamically create a span indicating (*) are required fields
 *	- create a validation for radio button
 *	- create a validation for checkbox
 *	- create a validation for dropdown
@@ -13,13 +14,15 @@
 
 			var defaults = {
 				'emptyFieldBgColor' : '#FF6B6B',
-				'error-message' : 'Please complete the form'
+				'errorMessageContainerId' : 'error-msg-container',
+				'errorMessage' : 'Please complete the form'
 			};
 
 			var settings = $.extend(defaults, options);
-
 			var selectedForm = this;
-
+			var errorMessageContainer = $('div#'+settings.errorMessageContainerId);
+			var errorMessageSpan = $('span.ui-icon.ui-icon-alert', errorMessageContainer);
+			
 			initForm();
 
 			return this.submit(function() {
@@ -44,6 +47,12 @@
 						}
 					}
 				});	
+
+				if (!formValid) {
+					showErrorMessage();
+				} else {
+					errorMessageContainer.hide();
+				}
 				return formValid;
 			});
 
@@ -52,7 +61,7 @@
 			}
 
 			function changeBackgroundColor(element) {
-				$(element).css('background-color', defaults.emptyFieldBgColor);
+				$(element).css('background-color', settings.emptyFieldBgColor);
 			}
 
 			function fieldIsEmpty(fieldValue) {
@@ -69,10 +78,20 @@
 				return false;
 			}
 
+			function showErrorMessage() {
+				constructErrorMessage();
+				errorMessageContainer.show();
+			}
+
+			function constructErrorMessage() {
+				errorMessageSpan.after('').after('<strong>' +  settings.errorMessage + '</strong>');
+			}
+
 			function initForm() {
 				selectedForm.find('.required').each(function() {
 					$(this).parent().find('label').append('<span style="color: red;">*</span>');
 				});
+				errorMessageContainer.hide();
 			};
 		};
 
